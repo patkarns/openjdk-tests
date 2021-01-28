@@ -4,10 +4,6 @@ on:
     paths:
     - 'buildenv/**'
 jobs:
-  checkBuildenvChanges:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "2204 TEST"
   comment:
     runs-on: ubuntu-latest
     steps:

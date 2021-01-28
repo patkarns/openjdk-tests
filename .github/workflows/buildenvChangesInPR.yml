@@ -4,6 +4,17 @@ on:
     paths:
     - 'buildenv/**'
 jobs:
+  triggerGrinderTests:
+    name: Build
+    runs-on: ubuntu-16.04
+    steps:
+    - name: trigger single Job
+      uses: appleboy/jenkins-action@master
+      with:
+        url: "https://ci.adoptopenjdk.net/"
+        user: "xfxcwynlc"
+        token: ${{ secrets.TOKEN }}
+        job: "jdk"
   comment:
     runs-on: ubuntu-latest
     steps:

@@ -1,0 +1,13 @@
+name: "buildenv Changes in PR"
+on:
+  pull_request:
+    paths:
+    - 'buildenv/**'
+jobs:
+  checkBuildenvChanges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test comment
+      run: run: |
+          curl -u github-actions:${{ secrets.GITHUB_TOKEN }} -d '{ "body":  "2204 TEST! Action run: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}" }' -X POST ${{ github.event.issue.comments_url }}
+    

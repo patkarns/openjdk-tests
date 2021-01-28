@@ -1,5 +1,8 @@
 name: trigger jenkins job
-on: [push]
+on: 
+  pull_request:
+    paths:
+    - 'buildenv/**'
 jobs:
 
   build:

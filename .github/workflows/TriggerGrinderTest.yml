@@ -16,3 +16,4 @@ jobs:
         user: "xfxcwynlc"
         token: ${{ secrets.TOKEN }}
         job: "jdk"
+

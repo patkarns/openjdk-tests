@@ -14,7 +14,7 @@ jobs:
         url: "https://ci.adoptopenjdk.net/"
         user: "xfxcwynlc"
         token: ${{ secrets.TOKEN }}
-        job: "jdk"
+        job: "Grinder_Simple"
   comment:
     runs-on: ubuntu-latest
     steps:

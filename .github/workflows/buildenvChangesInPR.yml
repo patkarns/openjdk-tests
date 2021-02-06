@@ -11,8 +11,8 @@ jobs:
     - name: trigger single Job
       uses: stigmelling/jenkins-action@v1
       with:
-        jenkinsUrl: "https://ci.adoptopenjdk.net/"
-        username: "xfxcwynlc"
+        jenkinsUrl: 'https://ci.adoptopenjdk.net/'
+        username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
         params: '{}'

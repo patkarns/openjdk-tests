@@ -9,17 +9,6 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
     - name: trigger single Job
-      uses: name: "buildenv Changes in PR"
-on:
-  pull_request:
-    paths:
-    - 'buildenv/**'
-jobs:
-  triggerGrinderTests:
-    name: Build
-    runs-on: ubuntu-16.04
-    steps:
-    - name: trigger single Job
       uses: stigmellingjenkins-action@v1
       with:
         jenkinsUrl:: "https://ci.adoptopenjdk.net/"

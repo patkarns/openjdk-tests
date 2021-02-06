@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
     - name: trigger single Job
-      uses: stigmellingjenkins-action@v1
+      uses: stigmelling/jenkins-action@v1
       with:
         jenkinsUrl:: "https://ci.adoptopenjdk.net/"
         username: "xfxcwynlc"

@@ -9,7 +9,39 @@ jobs:
     runs-on: ubuntu-16.04
     steps:
     - name: trigger single Job
-      uses: appleboy/jenkins-action@master
+      uses: name: "buildenv Changes in PR"
+on:
+  pull_request:
+    paths:
+    - 'buildenv/**'
+jobs:
+  triggerGrinderTests:
+    name: Build
+    runs-on: ubuntu-16.04
+    steps:
+    - name: trigger single Job
+      uses: stigmellingjenkins-action@v1
+      with:
+        jenkinsUrl:: "https://ci.adoptopenjdk.net/"
+        username: "xfxcwynlc"
+        token: ${{ secrets.TOKEN }}
+        job: "Grinder_Simple"
+        params: '{}'
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '2204 buildenv changed!'
+            })
+    
+
       with:
         url: "https://ci.adoptopenjdk.net/"
         user: "xfxcwynlc"

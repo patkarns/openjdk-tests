@@ -78,15 +78,16 @@ jobs:
   triggerGrinderTests:
     name: Build
     runs-on: ubuntu-16.04
+    needs: getBuildLists
     steps:
     - name: trigger single Job
+      env:
+        TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ', ') }}
       uses: stigmelling/jenkins-action@master
       with:
         jenkinsUrl: 'https://ci.adoptopenjdk.net/'
         username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
-        params: |
-          TARGET_STR ="${{join(needs.getBuildLists.outputs.buildLists, ', ') }}"
-          { 'TARGET': $TARGET_STR' }
+        params: "{\"TARGET\": $TARGET_STR }"
 

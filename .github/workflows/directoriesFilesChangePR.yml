@@ -72,7 +72,5 @@ jobs:
               body: 'build listtt ${{ matrix.build_list }}'
             })
       - run: |
-          echo build lists ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}"
           echo build lists ${{ needs.getBuildLists.outputs.buildLists  }}"
-          echo build list ${{ matrix.build_list }}
-          echo changes ${{ steps.get_change.outputs.all }}
+          echo change output ${{ steps.getBuildLists.get_change.outputs.all }}

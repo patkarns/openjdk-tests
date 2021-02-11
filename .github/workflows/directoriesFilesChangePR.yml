@@ -62,13 +62,17 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
+            comment_body = `
+              body: ${{ steps.workflow_run_info.outputs.id }}
+              `;
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'build listtt ${{ matrix.build_list }}}'
+              body: 'build listtt ${{ matrix.build_list }}'
             })
-      - run: echo "build list - ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}"
-      - run: echo ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}
-      - run: echo ${{ matrix.build_list }}
-      - run: echo ${{ steps.get_change.outputs.all }}
+      - run: |
+          echo build lists ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}"
+          echo build lists ${{ needs.getBuildLists.outputs.buildLists  }}"
+          echo build list ${{ matrix.build_list }}
+          echo changes ${{ steps.get_change.outputs.all }}

@@ -1,6 +1,7 @@
 name: trigger jenkins job
 on: 
   pull_request:
+    types: [ready_for_review]
     paths:
     - 'buildenv/**'
 jobs:

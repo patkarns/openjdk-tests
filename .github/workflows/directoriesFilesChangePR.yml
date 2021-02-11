@@ -86,7 +86,5 @@ jobs:
         username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
-        params: |
-          build_list_string = ${{join(needs.getBuildLists.outputs.buildLists, ', ') }}
-          '{ "TARGET": $build_list_string'
+        params: '{ "TARGET": ${{join(needs.getBuildLists.outputs.buildLists, ", ") }} }'
 

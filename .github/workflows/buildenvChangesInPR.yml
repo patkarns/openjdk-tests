@@ -15,7 +15,7 @@ jobs:
         username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
-        params: '{}'
+        params: '{ "JDK_VERSION": 11}'
   comment:
     runs-on: ubuntu-latest
     steps:

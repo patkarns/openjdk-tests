@@ -69,4 +69,6 @@ jobs:
               body: 'build listtt ${{ matrix.build_list }}}'
             })
       - run: echo "build list - ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}"
-      - run: echo "build listt - ${{ matrix.build_list }}"
+      - run: echo ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}
+      - run: echo ${{ matrix.build_list }}
+      - run: echo ${{ steps.get_change.outputs.all }}

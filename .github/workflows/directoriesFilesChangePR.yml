@@ -55,7 +55,7 @@ jobs:
         with:
           name: output_changed_based_build_list
           path: ./**/output_*/
-comment:
+  comment:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v3
@@ -68,3 +68,4 @@ comment:
               repo: context.repo.repo,
               body: 'build listtt ${{ fromJson(needs.getBuildLists.outputs.buildLists) }}'
             })
+      - run: echo "build list - ${{ romJson(needs.getBuildLists.outputs.buildLists)  }}"

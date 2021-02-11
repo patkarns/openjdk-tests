@@ -67,4 +67,4 @@ jobs:
               repo: context.repo.repo,
               body: 'build listtt ${{ fromJson(needs.getBuildLists.outputs.buildLists) }}'
             })
-      - run: echo "build list - ${{ romJson(needs.getBuildLists.outputs.buildLists)  }}"
+      - run: echo "build list - ${{ fromJson(needs.getBuildLists.outputs.buildLists)  }}"

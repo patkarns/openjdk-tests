@@ -74,3 +74,4 @@ jobs:
       - run: |
           echo build lists ${{ needs.getBuildLists.outputs.buildLists  }}
           echo change output ${{ steps.getBuildLists.get_change.outputs.all }}
+          echo joined string ${{join(needs.getBuildLists.outputs.buildLists, ', ') }}  

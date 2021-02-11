@@ -1,6 +1,7 @@
 name: "buildenv Changes in PR"
 on:
   pull_request:
+    types: [ready_for_review]
     paths:
     - 'buildenv/**'
 jobs:

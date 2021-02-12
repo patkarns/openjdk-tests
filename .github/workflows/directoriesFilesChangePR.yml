@@ -79,7 +79,7 @@ jobs:
     name: Build
     runs-on: ubuntu-16.04
     env:
-        TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ', ') }}
+        TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ',') }}
     needs: getBuildLists
     steps:
     - name: trigger single Job

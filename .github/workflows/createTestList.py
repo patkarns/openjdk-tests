@@ -9,6 +9,7 @@ def main():
     formattedTests = []
     
     for argument in os.getenv('TARGET_LIST'):
+        print(argument)
         formattedTests.append(sanity_format.format(argument))
     
     allTests = ','.join(formattedTests)    

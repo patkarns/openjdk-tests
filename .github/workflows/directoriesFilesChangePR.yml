@@ -87,7 +87,7 @@ jobs:
     - name: format test targets str
       id: format_test_targets_str
       run: |
-        python3 ./.github/workflows/createTestList.py ${{ needs.getBuildLists.outputs.buildLists }}
+        python3 ./.github/workflows/getBuildLists.py ${{ needs.getBuildLists.outputs.buildLists }}
     - name: trigger single Job
       uses: stigmelling/jenkins-action@master
       with:

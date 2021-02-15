@@ -4,7 +4,7 @@ def main():
     print(sys.argv)
 
     sanity_format = "sanity.{}"
-    foramttedTests = []
+    formattedTests = []
     
     for argument in sys.argv:
         formattedTests.append(sanity_format.format(argument))

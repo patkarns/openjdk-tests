@@ -2,7 +2,8 @@ import sys
 
 def main():
     print(sys.argv)
-
+    print(os.getenv('TARGET_STR'))
+    
     sanity_format = "sanity.{}"
     formattedTests = []
     

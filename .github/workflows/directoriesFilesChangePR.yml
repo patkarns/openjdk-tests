@@ -78,10 +78,16 @@ jobs:
   triggerGrinderTests:
     name: Build
     runs-on: ubuntu-16.04
+    outputs:
+      testTargetsStr: ${{ steps.format_test_targets_str.outputs.test_targets_str }}
     env:
         TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ',') }}
     needs: getBuildLists
     steps:
+    - name: format test targets str
+      id: format_test_targets_str
+      run: |
+        python3 ./.github/workflows/createTestList.py ${{ needs.getBuildLists.outputs.buildLists }}
     - name: trigger single Job
       uses: stigmelling/jenkins-action@master
       with:
@@ -90,4 +96,5 @@ jobs:
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
         params: "{\"TARGET\": ${{env.TARGET_STR}} }"
+      
 

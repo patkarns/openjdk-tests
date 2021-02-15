@@ -3,12 +3,12 @@ import os
 
 def main():
     print(sys.argv)
-    print(os.getenv('TEST_LIST'))
+    print(os.getenv('TARGET_LIST'))
     
     sanity_format = "sanity.{}"
     formattedTests = []
     
-    for argument in os.getenv('TEST_LIST'):
+    for argument in os.getenv('TARGET_LIST'):
         formattedTests.append(sanity_format.format(argument))
     
     allTests = ','.join(formattedTests)    

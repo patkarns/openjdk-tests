@@ -8,7 +8,7 @@ def main():
     sanity_format = "sanity.{}"
     formattedTests = []
     
-    for argument in sys.argv:
+    for argument in os.getenv('TARGET_STR'):
         formattedTests.append(sanity_format.format(argument))
     
     allTests = ','.join(formattedTests)    

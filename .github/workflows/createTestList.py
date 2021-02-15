@@ -4,6 +4,7 @@ def main():
     print(sys.argv)
     result = []
     print('::set-output name=test_targets_str::{}'.format(sys.argv[1]))
+    print(sys.argv[1])
 
     
 

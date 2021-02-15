@@ -90,7 +90,9 @@ jobs:
       run: |
         python3 ./.github/workflows/createTestList.py ${{ needs.getBuildLists.outputs.buildLists }}
     - name: print script output
-      run: echo "${{ outputs.testTargetsStr }}"
+      run: |
+        echo "${{ steps.format_test_targets_str.outputs.testTargetsStr }}"
+        echo "${{ steps.format_test_targets_str.outputs.test-targets-str }}"
     - name: trigger single Job
       uses: stigmelling/jenkins-action@master
       with:

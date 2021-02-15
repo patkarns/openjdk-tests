@@ -9,7 +9,7 @@ def main():
     for argument in sys.argv:
         formattedTests.append(sanity_format.format(argument))
     
-    allTests = formattedTests.join(',')
+    allTests = ','.join(formattedTests)    
     testTargets = 'TESTLIST={}'.format(allTests)
     
     print(testTargets)

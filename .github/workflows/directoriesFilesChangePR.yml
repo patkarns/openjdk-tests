@@ -82,6 +82,7 @@ jobs:
       test_targets_str: ${{ steps.format_test_targets_str.outputs.test_targets_str }}
     env:
         TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ',') }}
+        TARGET_LIST:  ${{ needs.getBuildLists.outputs.buildLists }}
     needs: getBuildLists
     steps:
     - uses: actions/checkout@v2

@@ -92,6 +92,6 @@ jobs:
         username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
-        params: "{\"TARGET\": ${{env.TARGET_LIST}} }"
+        params: "{\"TARGET\": ${{env.TARGET_LIST}}, \"TARGET\": 11 }"
       
 

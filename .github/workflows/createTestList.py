@@ -1,5 +1,6 @@
 import sys
 import os
+import ast
 
 def main():
     print(sys.argv)
@@ -8,7 +9,11 @@ def main():
     sanity_format = "sanity.{}"
     formattedTests = []
     
-    for argument in os.getenv('TARGET_LIST'):
+    targetNames = ast.literal_eval(os.getenv('TARGET_LIST'))
+    
+    print(targetNames)
+    
+    for argument in targetNames:
         print(argument)
         formattedTests.append(sanity_format.format(argument))
     

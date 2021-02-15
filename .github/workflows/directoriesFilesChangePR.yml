@@ -79,7 +79,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     outputs:
-      testTargetsStr: ${{ steps.format_test_targets_str.outputs.test_targets_str }}
+      test_targets_str: ${{ steps.format_test_targets_str.outputs.test_targets_str }}
     env:
         TARGET_STR:  ${{join(needs.getBuildLists.outputs.buildLists, ',') }}
     needs: getBuildLists
@@ -91,8 +91,7 @@ jobs:
         python3 ./.github/workflows/createTestList.py ${{ needs.getBuildLists.outputs.buildLists }}
     - name: print script output
       run: |
-        echo formatted output ${{ steps.format_test_targets_str.outputs.testTargetsStr }}
-        echo formatted output 2 ${{ steps.format_test_targets_str.outputs.test-targets-str }}
+        echo formatted output ${{ steps.format_test_targets_str.outputs.test_targets_str}}
     - name: trigger single Job
       uses: stigmelling/jenkins-action@master
       with:

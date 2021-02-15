@@ -3,12 +3,12 @@ import os
 
 def main():
     print(sys.argv)
-    print(os.getenv('TARGET_STR'))
+    print(os.getenv('TEST_LIST'))
     
     sanity_format = "sanity.{}"
     formattedTests = []
     
-    for argument in os.getenv('TARGET_STR'):
+    for argument in os.getenv('TEST_LIST'):
         formattedTests.append(sanity_format.format(argument))
     
     allTests = ','.join(formattedTests)    
@@ -17,7 +17,6 @@ def main():
     print(testTargets)
     
     print('::set-output name=test_targets_str::{}'.format(testTargets))
-
 
 if __name__ == "__main__":
     main()

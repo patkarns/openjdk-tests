@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       buildLists: ${{ steps.locations_parse.outputs.build_lists }}
+      buildEnv: ${{ steps.locations_parse.outputs.build_env}} 
     steps:
       - uses: actions/checkout@v2
       - uses: jitterbit/get-changed-files@v1
@@ -79,6 +80,7 @@ jobs:
     env:
         TARGET_LIST:  ${{ needs.getBuildLists.outputs.buildLists }}
     needs: getBuildLists
+    if: ${{ needs.getBuildLists.outputs.buildEnv }}
     steps:
     - uses: actions/checkout@v2
     - name: format test targets str

@@ -19,7 +19,10 @@ def main():
         if argument.startswith('buildenv/') and not flag:
             print('::set-output name=build_env::true')
             flag = True
-
+    
+    if not flag:
+        print('::set-output name=build_env::false')
+    
     if not result:
         result.append('skip')
     print('::set-output name=build_lists::{}'.format(json.dumps(result)))

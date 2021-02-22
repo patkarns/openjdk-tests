@@ -1,6 +1,7 @@
 name: 'Directories/Files Change Test PR'
 on:
   pull_request:
+    types: [ready_for_review]
     paths-ignore:
       - '.gitignore'
       - '*.md'

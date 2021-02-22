@@ -1,6 +1,7 @@
 name: 'Directories/Files Change Test PR'
 on:
   pull_request:
+    types: [ready_for_review]
     paths-ignore:
       - '.gitignore'
       - '*.md'
@@ -103,7 +104,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'Test directories and/or buildenv directory changed, triggering Grinder job'
+              body: 'Test directory/directories and/or buildenv directory changed, triggering Grinder job'
             })
 
       

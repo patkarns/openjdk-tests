@@ -26,6 +26,37 @@ jobs:
         id: locations_parse
         run: |
           python3 ./.github/workflows/getBuildLists.py ${{ steps.get_change.outputs.all }}
+  testChangeBasedBuildListWithHotspotAndOpenj9:
+    runs-on: ${{ matrix.os }}
+    needs: getBuildLists
+    if: ${{!contains( fromJson(needs.getBuildLists.outputs.buildLists), 'skip')}}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-16.04, macos-10.15, windows-2016]
+        version: [8, 15]
+        build_list: ${{ fromJson(needs.getBuildLists.outputs.buildLists) }}
+        impl: [hotspot, openj9]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: AdoptOpenJDK/install-jdk@v1
+        with:
+          version: ${{ matrix.version }}
+          source: 'nightly'
+          impl: ${{ matrix.impl }}
+      - name: AQA
+        uses: AdoptOpenJDK/run-aqa@v1
+        with:
+          build_list: ${{ matrix.build_list }}
+          target: '_sanity.regular'
+          jdksource: 'install-jdk'
+          version: ${{ matrix.version }}
+          openjdk_testRepo: '${{ github.event.pull_request.head.repo.full_name }}:${{ github.head_ref }}'
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: output_changed_based_build_list
+          path: ./**/output_*/
   triggerGrinderTests:
     name: Build
     runs-on: ubuntu-latest
@@ -42,7 +73,6 @@ jobs:
       id: format_test_targets_str
       run: |
         python3 ./.github/workflows/createTestList.py ${{matrix.build_list}}
-        echo ${{ steps.format_test_targets_str.outputs.test_targets_str }}
     - name: trigger default job
       uses: appleboy/jenkins-action@master
       if: ${{contains( fromJson(needs.getBuildLists.outputs.buildLists), 'skip')}}

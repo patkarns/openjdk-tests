@@ -22,7 +22,7 @@ def getPlaylistPath(dirName):
     elif dirName == 'perf':
         return './openjdk-tests/perf/bumbleBench/'
       
-def getTestCaseNameStatic(path):
+def getTestCaseNameStatic(dirName):
   if dirName == 'openjdk':
     return 'jdk_custom'
   elif dirName == 'system':

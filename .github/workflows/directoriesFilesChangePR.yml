@@ -26,11 +26,6 @@ jobs:
         id: locations_parse
         run: |
           python3 ./.github/workflows/getBuildLists.py ${{ steps.get_change.outputs.all }}
-      - name: echo
-        run: |
-          echo ${{ steps.locations_parse.outputs.all }}
-          echo ${{ outputs.buildLists) }}
-          echo ${{ steps.get_change.outputs.all }}
   triggerGrinderTests:
     name: Build
     runs-on: ubuntu-latest

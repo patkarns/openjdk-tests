@@ -29,6 +29,7 @@ jobs:
       - name: echo
         run: |
           echo ${{ steps.locations_parse.outputs.all }}
+          echo ${{ outputs.buildLists) }}
           echo ${{ steps.get_change.outputs.all }}
   triggerGrinderTests:
     name: Build

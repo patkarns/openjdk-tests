@@ -42,6 +42,7 @@ jobs:
       id: format_test_targets_str
       run: |
         python3 ./.github/workflows/createTestList.py ${{matrix.build_list}}
+        echo ${{matrix.build_list}}
     - name: trigger default job
       uses: appleboy/jenkins-action@master
       if: ${{contains( fromJson(needs.getBuildLists.outputs.buildLists), 'skip')}}

@@ -30,7 +30,7 @@ def main():
     
     if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
       playlistPath = getPlaylistPath(dirName)
-      testCaseNames = getTestCaseNames(playlistPath)
+      testCaseNames = getTestCaseName(playlistPath)
             
       testTarget = 'TESTLIST={}'.format(allTests)
 

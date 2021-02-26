@@ -28,7 +28,7 @@ def main():
     
     print(dirName)
     
-    if dirName == 'openjdk' || dirName == 'system' || dirName == 'functional' || dirName == 'perf':
+    if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
       playlistPath = getPlaylistPath(dirName)
       testCaseNames = getTestCaseNames(playlistPath)
             

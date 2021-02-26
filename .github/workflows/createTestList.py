@@ -42,9 +42,10 @@ def main():
     print(os.environ['PATH'])
     
     if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
+      
 #       playlistPath = getPlaylistPath(dirName)
 #       testCaseName = getTestCaseName(playlistPath)
-        testCaseName = getTestCaseNameStatic(dirName)
+      testCaseName = getTestCaseNameStatic(dirName)
             
       testTarget = 'TESTLIST={}'.format(testCaseName)
 

@@ -33,7 +33,7 @@ jobs:
       test_targets_str: ${{ steps.format_test_targets_str.outputs.test_targets_str }}
     strategy:
       matrix:
-        build_lists: ${{ needs.getBuildLists.outputs.buildLists }}
+        build_list: ${{ fromJson(needs.getBuildLists.outputs.buildLists) }}
     needs: getBuildLists
     if: ${{ needs.getBuildLists.outputs.buildEnv }}
     steps:
@@ -41,7 +41,7 @@ jobs:
     - name: format test targets str
       id: format_test_targets_str
       run: |
-        python3 ./.github/workflows/createTestList.py ${{matrix.build_lists}}
+        python3 ./.github/workflows/createTestList.py ${{matrix.build_list}}
     - name: trigger default job
       uses: appleboy/jenkins-action@master
       if: ${{contains( fromJson(needs.getBuildLists.outputs.buildLists), 'skip')}}
@@ -58,7 +58,7 @@ jobs:
         username: 'xfxcwynlc'
         token: ${{ secrets.TOKEN }}
         job: "Grinder_Simple"
-        params: '{ "BUILD_LIST": "${{matrix.build_lists}}", "TARGET": "testList ${{ steps.format_test_targets_str.outputs.test_target_str}}" }'
+        params: '{ "BUILD_LIST": "${{matrix.build_list}}", "TARGET": "testList ${{ steps.format_test_targets_str.outputs.test_target_str}}" }'
   comment:
     runs-on: ubuntu-latest
     needs: getBuildLists

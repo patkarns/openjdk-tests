@@ -15,11 +15,11 @@ def getTestCaseName(path):
 def getPlaylistPath(dirName):
     if dirName == 'openjdk':
         return './openjdk-tests/openjdk/'
-    else if dirName == 'system':
+    elif dirName == 'system':
         return './openjdk-tests/system/daaLoadTest/'
-    else if dirName === 'functional':
+    elif dirName === 'functional':
         return './openjdk-tests/functional/SyntheticGCWorkload/'
-    else if dirName == 'perf':
+    elif dirName == 'perf':
         return './openjdk-tests/perf/bumbleBench/'
 
 def main():

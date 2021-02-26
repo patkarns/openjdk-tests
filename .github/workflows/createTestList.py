@@ -27,6 +27,7 @@ def main():
     dirName = sys.argv[1]
     
     print(dirName)
+    print(os.path)
     
     if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
       playlistPath = getPlaylistPath(dirName)

@@ -17,7 +17,7 @@ def getPlaylistPath(dirName):
         return './openjdk-tests/openjdk/'
     elif dirName == 'system':
         return './openjdk-tests/system/daaLoadTest/'
-    elif dirName === 'functional':
+    elif dirName == 'functional':
         return './openjdk-tests/functional/SyntheticGCWorkload/'
     elif dirName == 'perf':
         return './openjdk-tests/perf/bumbleBench/'

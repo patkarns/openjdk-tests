@@ -24,13 +24,13 @@ def getPlaylistPath(dirName):
       
 def getTestCaseNameStatic(path):
   if dirName == 'openjdk':
-        return 'jdk_custom'
-    elif dirName == 'system':
-        return 'ClassLoadingTest'
-    elif dirName == 'functional':
-        return 'SyntheticGCWorkload_concurrentSlackAuto_1k_J9'
-    elif dirName == 'perf':
-        return 'dacapo-eclipse'
+    return 'jdk_custom'
+  elif dirName == 'system':
+    return 'ClassLoadingTest'
+  elif dirName == 'functional':
+    return 'SyntheticGCWorkload_concurrentSlackAuto_1k_J9'
+  elif dirName == 'perf':
+    return 'dacapo-eclipse'
 
 def main():
     

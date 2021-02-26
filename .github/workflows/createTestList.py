@@ -21,6 +21,16 @@ def getPlaylistPath(dirName):
         return './openjdk-tests/functional/SyntheticGCWorkload/'
     elif dirName == 'perf':
         return './openjdk-tests/perf/bumbleBench/'
+      
+def getTestCaseNameStatic(path):
+  if dirName == 'openjdk':
+        return 'jdk_custom'
+    elif dirName == 'system':
+        return 'ClassLoadingTest'
+    elif dirName == 'functional':
+        return 'SyntheticGCWorkload_concurrentSlackAuto_1k_J9'
+    elif dirName == 'perf':
+        return 'dacapo-eclipse'
 
 def main():
     
@@ -32,8 +42,9 @@ def main():
     print(os.environ['PATH'])
     
     if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
-      playlistPath = getPlaylistPath(dirName)
-      testCaseNames = getTestCaseName(playlistPath)
+#       playlistPath = getPlaylistPath(dirName)
+#       testCaseNames = getTestCaseName(playlistPath)
+        testCasenames = getTestCaseNameStatic(dirName)
             
       testTarget = 'TESTLIST={}'.format(allTests)
 

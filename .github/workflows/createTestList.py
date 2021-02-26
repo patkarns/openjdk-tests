@@ -43,10 +43,10 @@ def main():
     
     if (dirName == 'openjdk') or (dirName == 'system') or (dirName == 'functional') or (dirName == 'perf'):
 #       playlistPath = getPlaylistPath(dirName)
-#       testCaseNames = getTestCaseName(playlistPath)
-        testCasenames = getTestCaseNameStatic(dirName)
+#       testCaseName = getTestCaseName(playlistPath)
+        testCaseName = getTestCaseNameStatic(dirName)
             
-      testTarget = 'TESTLIST={}'.format(allTests)
+      testTarget = 'TESTLIST={}'.format(testCaseName)
 
       print(testTarget)
       print('::set-output name=test_target_str::{}'.format(testTarget))
